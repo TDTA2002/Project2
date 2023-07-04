@@ -1,11 +1,9 @@
 import React from 'react'
 
 import Banner from './components/Banners/Banner';
-import Story from './components/Storys/Story';
 import Footer from './components/Footers/Footer';
-import DetailItem from '../DetailItems/DetailItem';
-import Login from '../Logins/Login';
-
+import { Projects } from './components/Projects/Project';
+import { Skills } from './components/Skills/Skills';
 
 export default function Home() {
 
@@ -15,8 +13,10 @@ export default function Home() {
   return (
     <div id="home">
       <Banner />
-      <Story />
-      <Footer />
+      <Skills />
+      <Projects />
+
+      {/* <Footer /> */}
       {/* <Login/> */}
     </div>
   )

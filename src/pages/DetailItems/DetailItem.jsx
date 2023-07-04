@@ -5,10 +5,11 @@ import { useParams } from 'react-router-dom'
 import { productActions } from '../../stores/slices/products.slice'
 import { convertToUSD } from '@mieuteacher/meomeojs'
 import { Link } from 'react-router-dom'
+import { Carousel } from 'react-bootstrap';
 
 export default function DetailItem() {
     const { id } = useParams()
-    const [quantity,setQuantity] = useState(1)
+    const [quantity, setQuantity] = useState(1)
 
     const dispatch = useDispatch();
     const productStore = useSelector(store => store.productStore.listProducts)
@@ -25,21 +26,32 @@ export default function DetailItem() {
         <div className="Container">
             <div className="ContainerDetail">
 
-                <div className="Image">
-                   <div style={{margin:"0px 0px 20px 100px"}}> <Link style={{color:"black"}} to="/shop/hoabo" >BACK TO SHOP</Link></div>
-                    <img src={`${product?.url}`} alt="" />
+                <div className="slider">
+                    <Link style={{ color: "White", textDecoration: "none", gap: "20px"}} to="/shop/" ><h4><span class="material-symbols-outlined">
+                        arrow_back
+                    </span>Store</h4></Link>
+                    <Carousel className='slider1'>
+                        {product?.footage.map((imageUrl, index) => (
+                            <Carousel.Item key={index}>
+                                <img className="d-block w-100" src={imageUrl} alt={`Image ${index}`} />
+                            </Carousel.Item>
+                        ))}
+                    </Carousel>
                 </div>
                 <div className="DetailItem">
                     <div className="content">
                         <h1 style={{ marginTop: "40px" }}>{product?.name}</h1>
-                        <p>Renew Hope Society - Monthly Floral Subscription</p>
-                        <p>Availabillty: In Stock {product?.stock} Items </p>
+                        <div>
+                            <h6>Released: {product?.release}</h6>
+                            <h6>Platforms: {product?.platforms}</h6>
+                            <h6>Main Genre: {product?.type}</h6>
+                            <h6>Developers: {product?.developers}</h6>
+                        </div>
+                        <p>Amount of play:{product?.rating} </p>
                         <div className="quantityCart">
                             <h5>Price :{convertToUSD(product?.price)} </h5>
                             <div className="quantity" style={{ margin: "20px" }}>
-                                <i className="fa-solid fa-plus" onClick={()=> quantity < product.stock ? setQuantity(quantity + 1) : <></>}></i>
-                                <span style={{ padding: "10px" }}>{quantity}</span>
-                                <i class="fa-solid fa-minus" onClick={()=> quantity > 1 ? setQuantity(quantity -1 ) : <></>}></i>
+
 
                             </div>
                             <div>

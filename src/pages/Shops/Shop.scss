@@ -1,32 +1,98 @@
-.containerShop{
+.container {
+    display: flex;
+    padding: 0px 40px 0px 40px;
+    gap: 80px;
+    width: 100%;
+    .Filter {
+        margin-top: 120px;
+        .dropdown-item {
+            color: white;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-family: "GT Regular";
+            font-size: 1.2em;
+            margin-bottom: 10px;
+            cursor: pointer;
 
-    .containerAllItem{
-        margin-top: 50px;
-        padding: 30px;
+        }
+
+        .list-group {
+            gap: 20px;
+        }
+
+    }
+
+    .containerAllItem {
+        
         display: flex;
         flex-wrap: wrap;
-        justify-content: space-around;
         width: 100%;
-        .Item{
+        gap: 25px;
+
+
+        .Item {
             margin-bottom: 25px;
-            padding: 10px;
             border: 1px solid rgb(238, 238, 238);
-            max-width: 23%;
-            .imageItem{
-                img{
-                   width: 100%;
+            max-width: 240px;
+            background-color: #202020;
+            grid-column: auto;
+            border: 1px transparent;
+            border-radius: 12px;
+            transition: 0.3s all;
+            height: 260px;
+            transition: transform 0.3s ease;
+
+            .imageItem {
+                img {
+                    width: 100%;
+                    height: auto;
+                    border-top-left-radius: 12px;
+                    border-top-right-radius: 12px;
                 }
             }
-            .itemDetail{
+
+            .itemDetail {
                 text-align: center;
-                .detailButton{
+                margin-top: 12px;
+
+                .detailButton {
                     width: 200px;
-                    border: 1px solid black;
+                    border: 1px solid rgb(152, 147, 147);
                     padding: 6px 20px;
-                    color: black;
+                    color: white;
 
                 }
             }
         }
     }
+}
+
+.Item:hover {
+    transform: scale(1.05);
+}
+
+
+a {
+    text-decoration: none;
+}
+
+img {
+    width: 30px;
+    height: auto;
+}
+
+.Icin {
+    display: flex;
+}
+
+.containerShop {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+h1,
+h2 {
+    font-weight: bold;
 }
