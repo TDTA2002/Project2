@@ -1,67 +1,17 @@
 {
   "users": [
     {
-      "id": 1,
-      "userName": "admin@gmail.com",
-      "password": "123",
-      "isAdmin": true,
-      "firstName": "Thanh ",
-      "lastName": "Thu",
-      "email": "thanhthu@gmail.com",
-      "avatar": "https://console.firebase.google.com/project/learnfirebase-b86b8/storage/learnfirebase-b86b8.appspot.com/files/~2FUserAvatar"
-    },
-    {
-      "id": 2,
+      "id": 0,
       "userName": "ntbphuoc",
       "password": "123456",
       "isAdmin": true,
       "firstName": "Phước",
       "lastName": "Nguyễn",
-      "email": "thuhuong@gmail.com",
+      "email": "Ghostking@gmail.com",
       "avatar": "https://firebasestorage.googleapis.com/v0/b/learnfirebase-afb02.appspot.com/o/userAvatars%2Fadmin.jpg?alt=media&token=3482a408-7ed1-41c6-b18f-eb730dc02623"
     }
   ],
-  "carts": [
-    {
-      "id": 1,
-      "userId": 1,
-      "products": [
-        {
-          "productId": 1,
-          "quantity": 5,
-          "des": "giao lẹ lẹ"
-        }
-      ]
-    }
-  ],
-  "receipts": [
-    {
-      "id": 1,
-      "userId": 1,
-      "totalPrice": 3000,
-      "paid": true,
-      "products": [
-        {
-          "productId": 1,
-          "quantity": 5,
-          "des": "giao lẹ lẹ"
-        }
-      ]
-    },
-    {
-      "id": 2,
-      "userId": 1,
-      "totalPrice": 3000,
-      "paid": true,
-      "products": [
-        {
-          "productId": 1,
-          "quantity": 5,
-          "des": "giao lẹ lẹ"
-        }
-      ]
-    }
-  ],
+
  
     "products": [
       {
