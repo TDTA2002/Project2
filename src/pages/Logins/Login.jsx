@@ -26,7 +26,7 @@ export default function Login() {
 
   return (
     <div>
-      <div className="container-all">
+      {/* <div className="container-all">
       {
                 userLoginStore.loading ? <Loading></Loading> : <></>
             }
@@ -38,7 +38,7 @@ export default function Login() {
             Please provide the email address and password associated with the account.
             If you're having trouble, please use the prompt below to reset your
             password.
-          </p>{" "}
+          </p>{""}
           <br />
           <form action="" onSubmit={(eventForm) => {
             eventForm.preventDefault(); // vô hiệu hành vi mặc định form
@@ -77,8 +77,9 @@ export default function Login() {
             <Link to="/register">PROCEED TO REGISTER</Link>
           </button>
         </div>
-      </div>
+      </div> */}
 
     </div>
   )
 }
+

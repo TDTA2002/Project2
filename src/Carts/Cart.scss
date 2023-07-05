@@ -1,0 +1,51 @@
+.Cart {
+    background-color: rgb(26, 26, 26) !important;
+}
+.offcanvas {
+    background-color: rgb(26, 26, 26) !important;
+
+}
+
+.totalquai {
+    font-size: 28px;
+    font-weight: bold;
+    color: white;
+}
+
+.itemcart1 {
+    background-color: #393838;
+    border-radius: 10px;
+    justify-content: space-between;
+    display: flex;
+    align-items: center;
+    padding: 17px 20px;
+    margin-right: 16px;
+    gap: 10px;
+}
+
+.info {
+    display: flex;
+    gap: 16px;
+    color: #999999;
+    font-size: 14px;
+    font-family: "GT Medium";
+    align-items: center;
+}
+
+.name {
+    font-size: 18px;
+    transition: 0.3s all;
+    cursor: pointer;
+    color: #ccc;
+}
+
+.allitem {
+    margin-bottom: 23px;
+    
+}
+.totalpri{
+    position: absolute;
+    bottom: 3.5%;
+    color: #999;
+    font-size: 16px;
+}

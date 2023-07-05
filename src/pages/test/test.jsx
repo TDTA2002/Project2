@@ -1,37 +1,59 @@
-// import React, { useEffect } from "react";
-// import { useSelector, useDispatch } from "react-redux";
-// import { productActions } from "./productSlice";
-// import ProductItem from "../DetailItems/DetailItem";
-// import Cart from "./test2";
+// import React, { useEffect, useState } from "react";
+// import { useDispatch, useSelector } from "react-redux";
+// import { productActions } from "./../../stores/slices/products.slice";
 
-// const test = () => {
-//   const dispatch = useDispatch();
-//   const listProducts = useSelector((state) => state.product.listProducts);
-//   const cart = useSelector((state) => state.product.cart);
+// const SomeComponent = () => {
+//     const dispatch = useDispatch();
+//     const productStore = useSelector((store) => store.productStore.listProducts);
+//     const cartItems = useSelector((store) => store.productStore.cart);
+//     const [cartProducts, setCartProducts] = useState([]);
 
-//   useEffect(() => {
-//     dispatch(productActions.findAllProducts());
-//   }, [dispatch]);
+//     useEffect(() => {
+//         dispatch(productActions.findAllProducts());
+//     }, []);
 
-//   const handleAddToCart = (item) => {
-//     dispatch(productActions.addToCart(item));
-//   };
+//     const handleAddToCart = async (product) => {
+//         dispatch(productActions.addToCart(product));
+//         try {
+//             const response = await fetch("http://localhost:4000/cartItems", {
+//                 method: "POST",
+//                 headers: {
+//                     "Content-Type": "application/json",
+//                 },
+//                 body: JSON.stringify(product),
+//             });
+//             if (response.ok) {
+//                 console.log("Cart item saved to DB JSON.");
+//             } else {
+//                 console.error("Failed to save cart item to DB JSON.");
+//             }
+//         } catch (error) {
+//             console.error("An error occurred while saving cart item to DB JSON:", error);
+//         }
+//     };
 
-//   return (
-//     <div className="app">
-//       <div className="product-list">
-//         <h2>Products</h2>
-//         {listProducts.map((item) => (
-//           <ProductItem
-//             key={item.id}
-//             item={item}
-//             onAddToCart={handleAddToCart}
-//           />
-//         ))}
-//       </div>
-//       <Cart cart={cart} />
-//     </div>
-//   );
+//     useEffect(() => {
+//         dispatch(productActions.findAllProducts());
+//         const productsInCart = productStore.filter((product) =>
+//             cartItems.includes(product.id)
+//         );
+//         setCartProducts(productsInCart);
+//     }, []);
+
+//     return (
+//         <div>
+//             <h2>Products</h2>
+//             {productStore.map((product) => (
+//                 <div key={product.id}>
+//                     <h3>{product.name}</h3>
+//                     <p>{product.description}</p>
+//                     <p>Price: {product.price}</p>
+//                     <button onClick={() => handleAddToCart(product)}>Add to Cart</button>
+//                     <hr />
+//                 </div>
+//             ))}
+//         </div>
+//     );
 // };
 
-// export default test;
+// export default SomeComponent;
