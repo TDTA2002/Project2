@@ -3,7 +3,7 @@ nav.navbar {
     position: fixed;
     width: 100%;
     top: 0;
-    z-index: 1;
+    z-index: 1004;
     transition: 0.32s ease-in-out;
 }
 
@@ -12,9 +12,9 @@ nav.navbar.scrolled {
     background-color: #121212;
 }
 
-nav.navbar a.navbar-brand {
-    width: 9%;
-}
+// nav.navbar a.navbar-brand {
+//     width: 9%;
+// }
 
 nav.navbar .navbar-nav .nav-link.navbar-link {
     font-weight: 400;
@@ -37,7 +37,6 @@ span.navbar-text {
 
 .social-icon {
     display: inline-block;
-    margin-left: 14px;
 }
 
 .social-icon a {
@@ -69,9 +68,10 @@ span.navbar-text {
 }
 
 .social-icon a img {
-    width: 40%;
+    width: 46%;
     z-index: 1;
     transition: 0.3s ease-in-out;
+    color: white !important;
 }
 
 .social-icon a:hover img {
@@ -84,7 +84,6 @@ span.navbar-text {
     border: 1px solid #fff;
     padding: 18px 34px;
     font-size: 18px;
-    margin-left: 18px;
     position: relative;
     background-color: transparent;
     transition: 0.3s ease-in-out;

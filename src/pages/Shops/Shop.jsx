@@ -8,8 +8,9 @@ import { convertToUSD } from '@mieuteacher/meomeojs';
 export default function Shop() {
   const dispatch = useDispatch();
   const productStore = useSelector(store => store.productStore.listProducts);
+  console.log("🚀 ~ file: Shop.jsx:11 ~ Shop ~ productStore:", productStore)
   const { type } = useParams();
-
+  
   useEffect(() => {
     dispatch(productActions.findAllProducts());
   }, []);

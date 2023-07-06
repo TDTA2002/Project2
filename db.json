@@ -895,5 +895,110 @@
       "quantity": 1
     }
   ],
-  "cartItems": []
+  "cartItems": [
+    {
+      "name": "Life is Strange",
+      "surname": "lis",
+      "price": "14.99",
+      "desc": "Life Is Strange is a five-part episodic game that sets out to revolutionize story-based choice and consequence games by allowing the player to rewind time and affect the past, present, and future. You are Max, a photography senior who saves her old friend Chloe by disurling she can rewind time. The pair soon find themselves exposed to the darker side of Arcadia Bay as they unurl the disturbing truth behind the sudden disappearance of a fellow student. Meanwhile, Max begins to have premonitions as she struggles to understand the implications of her power. She must quickly learn that changing the past can sometimes lead to a devastating future.",
+      "link": "https://lifeisstrange.square-enix-games.com/",
+      "release": "30th of January, 2015",
+      "platforms": "Playstation 4, PC, Xbox One, Xbox 360, Playstation 3",
+      "type": "Adventure",
+      "developers": "Dontnod Entertainment",
+      "publishers": "Square Enix",
+      "inCart": false,
+      "quantity": 1,
+      "selected": false,
+      "isHovered": false,
+      "isLiked": false,
+      "rating": 83,
+      "id": 2,
+      "url": "https://res.cloudinary.com/gianlucajahn/image/upload/c_scale,q_100,w_500/v1658188606/lis_ft0puo.jpg",
+      "footage": [
+        "https://res.cloudinary.com/gianlucajahn/image/upload/v1658188606/lis_ft0puo.jpg",
+        "https://res.cloudinary.com/gianlucajahn/image/upload/v1658236055/lis_1_rkrxt5.jpg",
+        "https://res.cloudinary.com/gianlucajahn/image/upload/v1658236272/lis_2_dcrdwz.jpg",
+        "https://res.cloudinary.com/gianlucajahn/image/upload/v1658236055/lis_3_komskf.jpg"
+      ]
+    },
+    {
+      "name": "Battlefield V",
+      "surname": "battlefield",
+      "price": "29.99",
+      "desc": "The Battlefield series goes back to its roots in a never-before-seen portrayal of World War 2. Take on physical, all-out multiplayer with your squad in modes like the vast Grand Operations and the cooperative Combined Arms, or witness human drama set against global combat in the single player War Stories. As you fight in epic, unexpected locations across the globe, enjoy the richest and most immersive Battlefield yet.",
+      "link": "https://www.origin.com/store/battlefield/battlefield-v",
+      "release": "9th of November, 2018",
+      "platforms": "Playstation 4, PC, Xbox Series S/X, Xbox One",
+      "type": "Shooter",
+      "developers": "EA Digital Illusions CE",
+      "publishers": "Electronic Arts",
+      "inCart": false,
+      "selected": false,
+      "isHovered": false,
+      "isLiked": false,
+      "quantity": 1,
+      "rating": 71,
+      "id": 1,
+      "url": "https://res.cloudinary.com/gianlucajahn/image/upload/c_scale,q_100,w_500/v1658188621/battlefield_n0gd5a.jpg",
+      "footage": [
+        "https://res.cloudinary.com/gianlucajahn/image/upload/v1658188621/battlefield_n0gd5a.jpg",
+        "https://res.cloudinary.com/gianlucajahn/image/upload/v1658235437/battlefield_1_jpudhq.jpg",
+        "https://res.cloudinary.com/gianlucajahn/image/upload/v1658235437/battlefield_3_zy9ewv.jpg",
+        "https://res.cloudinary.com/gianlucajahn/image/upload/v1658235438/battlefield_2_txs230.jpg"
+      ]
+    },
+    {
+      "name": "Grand Theft Auto: V",
+      "surname": "gtav",
+      "price": "39.99",
+      "desc": "Grand Theft Auto V is a vast open world game set in Los Santos, a sprawling sun-soaked metropolis struggling to stay afloat in an era of economic uncertainty and cheap reality TV. The game blends storytelling and gameplay in new ways as players repeatedly jump in and out of the lives of the games three lead characters, playing all sides of the games interwoven story.",
+      "link": "https://www.rockstargames.com/gta-v",
+      "release": "17th of September, 2013",
+      "platforms": "Xbox One, PlayStation 4, Xbox 360, PlayStation 5, PC, PlayStation 3, Xbox Series S/X",
+      "type": "Action",
+      "developers": "Rockstar North",
+      "publishers": "Rockstar Games",
+      "inCart": false,
+      "selected": false,
+      "isHovered": false,
+      "quantity": 1,
+      "isLiked": false,
+      "rating": 90,
+      "id": 8,
+      "url": "https://res.cloudinary.com/gianlucajahn/image/upload/c_scale,q_100,w_500/v1658188604/gtav_x1ccio.jpg",
+      "footage": [
+        "https://res.cloudinary.com/gianlucajahn/image/upload/v1658188604/gtav_x1ccio.jpg",
+        "https://res.cloudinary.com/gianlucajahn/image/upload/v1658236641/gtav_1_gkelkb.jpg",
+        "https://res.cloudinary.com/gianlucajahn/image/upload/v1658236641/gtav_3_dswcgm.jpg",
+        "https://res.cloudinary.com/gianlucajahn/image/upload/v1658236641/gtav_2_b1xno6.jpg"
+      ]
+    },
+    {
+      "name": "Anno: 1800",
+      "surname": "anno",
+      "price": "12.99",
+      "desc": "Anno 1800 takes place in the 19th century at the dawn of the Industrial Age. Like other Anno games, Anno 1800 is a city-building and strategy game. While it is set in the context of colonial trade, the featured architecture is Victorian Era and the economic engine is factory labor. The core gameplay of Anno 1800 takes place in the Old World, where the needs of the citizens, workers and artisans are central to the management of production and supply chains. A parallel New World city exists, which produces products that laborers in the Old World want to purchase, thus trade routes need to be established. Unlike its colonial 18th century predecessor Anno 1701, the game has a blueprint feature that helps the player to plan out the city.",
+      "link": "https://anno-union.com/",
+      "release": "16th of April, 2019",
+      "platforms": "PC (Microsoft Windows)",
+      "type": "Strategy",
+      "developers": "Blue Byte",
+      "publishers": "Ubisoft",
+      "inCart": false,
+      "selected": false,
+      "isHovered": false,
+      "quantity": 1,
+      "isLiked": false,
+      "rating": 81,
+      "id": 5,
+      "url": "https://res.cloudinary.com/gianlucajahn/image/upload/c_scale,q_100,w_500/v1658188622/anno_cbmzye.jpg",
+      "footage": [
+        "https://res.cloudinary.com/gianlucajahn/image/upload/v1658188622/anno_cbmzye.jpg",
+        "https://res.cloudinary.com/gianlucajahn/image/upload/v1658236405/anno_1_bpil6t.jpg",
+        "https://res.cloudinary.com/gianlucajahn/image/upload/c_scale,q_100,w_1920/v1658236405/anno_2_udh5ep.jpg",
+        "https://res.cloudinary.com/gianlucajahn/image/upload/v1658236405/anno_3_hoqcp0.jpg"
+      ]
+    }
+  ]
 }

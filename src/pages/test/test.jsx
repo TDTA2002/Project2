@@ -1,59 +1,54 @@
-// import React, { useEffect, useState } from "react";
-// import { useDispatch, useSelector } from "react-redux";
-// import { productActions } from "./../../stores/slices/products.slice";
+import React, { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { productActions } from "../../stores/slices/products.slice";
 
-// const SomeComponent = () => {
-//     const dispatch = useDispatch();
-//     const productStore = useSelector((store) => store.productStore.listProducts);
-//     const cartItems = useSelector((store) => store.productStore.cart);
-//     const [cartProducts, setCartProducts] = useState([]);
+export default function Test() {
+    const dispatch = useDispatch();
+    const userLoginStore = useSelector(store => store.userLoginStore);
+    const productStore = useSelector(store => store.productStore);
+    useEffect(() => {
+        dispatch(productActions.findAllProducts());
+    }, []);
+    const [showSearch, setShowSearch] = useState(false);
+    const [timeOutTarget, setTimeOutTarget] = useState(null);
 
-//     useEffect(() => {
-//         dispatch(productActions.findAllProducts());
-//     }, []);
+    const handleChange = (e) => {
+        clearTimeout(timeOutTarget);
+        setTimeOutTarget(setTimeout(() => {
+            if (!userLoginStore.loading) {
+                if (e.target.value !== "") {
+                    setShowSearch(true);
+                    dispatch(productActions.searchProductByName(e.target.value));
+                } else {
+                    setShowSearch(false);
+                }
+            }
+        }, 500));
+    };
 
-//     const handleAddToCart = async (product) => {
-//         dispatch(productActions.addToCart(product));
-//         try {
-//             const response = await fetch("http://localhost:4000/cartItems", {
-//                 method: "POST",
-//                 headers: {
-//                     "Content-Type": "application/json",
-//                 },
-//                 body: JSON.stringify(product),
-//             });
-//             if (response.ok) {
-//                 console.log("Cart item saved to DB JSON.");
-//             } else {
-//                 console.error("Failed to save cart item to DB JSON.");
-//             }
-//         } catch (error) {
-//             console.error("An error occurred while saving cart item to DB JSON:", error);
-//         }
-//     };
+    console.log("search", productStore.searchData);
 
-//     useEffect(() => {
-//         dispatch(productActions.findAllProducts());
-//         const productsInCart = productStore.filter((product) =>
-//             cartItems.includes(product.id)
-//         );
-//         setCartProducts(productsInCart);
-//     }, []);
-
-//     return (
-//         <div>
-//             <h2>Products</h2>
-//             {productStore.map((product) => (
-//                 <div key={product.id}>
-//                     <h3>{product.name}</h3>
-//                     <p>{product.description}</p>
-//                     <p>Price: {product.price}</p>
-//                     <button onClick={() => handleAddToCart(product)}>Add to Cart</button>
-//                     <hr />
-//                 </div>
-//             ))}
-//         </div>
-//     );
-// };
-
-// export default SomeComponent;
+    return (
+        <div>
+            <input
+                onChange={handleChange}
+                type='text'
+                className='search-item'
+                placeholder='...Search'
+            />
+            {showSearch ? (
+                productStore.searchData?.map((item) => (
+                    <div className='searchItem' key={item.id}>
+                        <img width='100px' height='100px' src={item.url} alt={item.name} />
+                        <div>
+                            <p>{item.name}</p>
+                            <p>{item.price}</p>
+                        </div>
+                    </div>
+                ))
+            ) : (
+                null
+            )}
+        </div>
+    );
+}

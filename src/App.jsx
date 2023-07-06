@@ -2,6 +2,7 @@ import './App.scss'
 import { Routes, Route } from 'react-router-dom'
 import LazyLoad from './LazyLoad'
 import Navbar from '@components/Navbars/Navbar'
+import UserForm from './components/UserForms/UserForm';
 
 function App() {
   return (
@@ -20,7 +21,7 @@ function App() {
           <Route path="shop/:type" element={LazyLoad(() => import("@pages/Shops/Shop"))()} />
           <Route path="detail/:id" element={LazyLoad(() => import("@pages/DetailItems/DetailItem"))()} />
         </Routes>
-    
+        
       </div>
 
     </div>

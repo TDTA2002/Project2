@@ -1,56 +1,39 @@
-import React, { useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { fetchCartItems, deleteItem } from '../../stores/slices/carts.slice';
-import axios from 'axios';
+import { useState } from 'react';
+import Button from 'react-bootstrap/Button';
+import Offcanvas from 'react-bootstrap/Offcanvas';
 
-function Cart() {
-    const cartItems = useSelector((state) => state.cart.items);
-    const loading = useSelector((state) => state.cart.loading);
-    const dispatch = useDispatch();
+function OffCanvasExample({ name, ...props }) {
+  const [show, setShow] = useState(false);
 
-    useEffect(() => {
-        dispatch(fetchCartItems());
-    }, [dispatch]);
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
 
-    const handleDeleteItem = async (itemId) => {
-        try {
-            await axios.delete(`${process.env.REACT_APP_SERVER_JSON}cartItems/${itemId}`);
-            dispatch(deleteItem(itemId));
-        } catch (error) {
-            console.log('Error deleting item:', error);
-        }
-    };
-
-    const getTotalQuantity = () => {
-        return cartItems.reduce((total, item) => total + item.quantity , 0);
-    };
-
-    const getTotalPrice = () => {
-        return cartItems.reduce((total, item) => total + item.price * item.quantity , 0);
-    };
-
-
-    if (loading) {
-        return <p>Loading...</p>;
-    }
-
-    return (
-        <div>
-            <h1>Cart</h1>
-            <ul>
-                {cartItems.map((item) => (
-                    <li key={item.id}>
-                        <span>{item.name}</span>
-                        <span>{item.price}</span>
-                        <span>{item.quantity}</span>
-                        <button onClick={() => handleDeleteItem(item.id)}>Delete</button>
-                    </li>
-                ))}
-            </ul>
-            <p>Total quantity: {getTotalQuantity()}</p>
-            <p>Total price: {getTotalPrice()}</p>
-        </div>
-    );
+  return (
+    <>
+      <Button variant="primary" onClick={handleShow} className="me-2">
+        {name}
+      </Button>
+      <Offcanvas show={show} onHide={handleClose} {...props}>
+        <Offcanvas.Header closeButton>
+          <Offcanvas.Title>Offcanvas</Offcanvas.Title>
+        </Offcanvas.Header>
+        <Offcanvas.Body>
+          Some text as placeholder. In real life you can have the elements you
+          have chosen. Like, text, images, lists, etc.
+        </Offcanvas.Body>
+      </Offcanvas>
+    </>
+  );
 }
 
-export default Cart;
+function Example() {
+  return (
+    <>
+      {['start', 'end', 'top', 'bottom'].map((placement, idx) => (
+        <OffCanvasExample key={idx} placement={placement} name={placement} />
+      ))}
+    </>
+  );
+}
+
+export default Example;
