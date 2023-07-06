@@ -1,6 +1,7 @@
 .Cart {
     background-color: rgb(26, 26, 26) !important;
 }
+
 .offcanvas {
     background-color: rgb(26, 26, 26) !important;
 }
@@ -35,16 +36,20 @@
     font-size: 18px;
     transition: 0.3s all;
     cursor: pointer;
-    color: #ccc;
+    color: #cccccc;
 }
 
 .allitem {
     margin-bottom: 23px;
-    
+
 }
-.totalpri{
+
+.totalpri {
     position: absolute;
     bottom: 3.5%;
     color: #999;
     font-size: 16px;
+    display: flex;
+    justify-content: space-between;
+    width: 90%;
 }

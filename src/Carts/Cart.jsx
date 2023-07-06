@@ -6,12 +6,12 @@ import { useSelector, useDispatch } from "react-redux";
 import { fetchCartItems, deleteItem } from "../stores/slices/carts.slice";
 import axios from 'axios';
 import "./Cart.scss"
+import { Link } from 'react-router-dom';
 
 function Cart({ handleClose, show }) {
     const cartItems = useSelector((state) => state.cart.items);
-    // const loading = useSelector((state) => state.cart.loading);
     const dispatch = useDispatch();
-
+    
     useEffect(() => {
         dispatch(fetchCartItems());
     }, [dispatch]);
@@ -57,14 +57,18 @@ function Cart({ handleClose, show }) {
                                         <span className='name'>{item.name}</span>
                                         <span className='info'>
                                             <span className='price'>${item.price}</span>
-                                            <button style={{color:"white", fontWeight:"boid"}} onClick={() => handleDeleteItem(item.id)}>X</button>
+                                            <button style={{ color: "white", fontWeight: "boid" }} onClick={() => handleDeleteItem(item.id)}>X</button>
                                         </span>
 
                                     </div>
                                 </div>
                             ))}
 
-                            <p className='totalpri'>Total price: ${getTotalPrice()}</p>
+
+                            <p className='totalpri'>
+                                <span>Total price: ${getTotalPrice()}</span>
+                                <Link to="/checkout"> <span style={{ color: "#f28d8d" }}>CheckOut</span></Link>
+                            </p>
                         </div>
                     </Offcanvas.Body>
                 </Offcanvas>

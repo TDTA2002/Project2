@@ -19,6 +19,7 @@ const searchProductByName = createAsyncThunk(
 )
 
 
+
 const productSlice = createSlice({
   name: "product",
   initialState: {
@@ -37,6 +38,7 @@ const productSlice = createSlice({
     clearCart: (state) => {
       state.cart = [];
     },
+
   },
   extraReducers: (builder) => {
     builder.addCase(findAllProducts.fulfilled, (state, action) => {

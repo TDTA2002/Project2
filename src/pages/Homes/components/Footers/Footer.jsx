@@ -1,70 +1,247 @@
-import React from 'react';
-import { MDBFooter, MDBContainer, MDBRow, MDBCol, MDBIcon } from 'mdb-react-ui-kit';
 
-export default function Footer() {
+
+export const Footer = () => {
     return (
-        <MDBFooter bgColor='light' className='text-center text-lg-start text-muted'>
-            <section className='d-flex justify-content-center justify-content-lg-between p-4 border-bottom'>
-                <div className='me-5 d-none d-lg-block'>
-                    <span>Get connected with us on social networks:</span>
+        <>
+            {/* Footer */}
+            <footer className="bg-dark text-center text-white">
+                {/* Grid container */}
+                <div className="container p-4">
+                    {/* Section: Social media */}
+                    <section className="mb-4">
+                        {/* Facebook */}
+                        <a
+                            className="btn btn-outline-light btn-floating m-1"
+                            href="#!"
+                            role="button"
+                        >
+                            <i className="fab fa-facebook-f" />
+                        </a>
+                        {/* Twitter */}
+                        <a
+                            className="btn btn-outline-light btn-floating m-1"
+                            href="#!"
+                            role="button"
+                        >
+                            <i className="fab fa-twitter" />
+                        </a>
+                        {/* Google */}
+                        <a
+                            className="btn btn-outline-light btn-floating m-1"
+                            href="#!"
+                            role="button"
+                        >
+                            <i className="fab fa-google" />
+                        </a>
+                        {/* Instagram */}
+                        <a
+                            className="btn btn-outline-light btn-floating m-1"
+                            href="#!"
+                            role="button"
+                        >
+                            <i className="fab fa-instagram" />
+                        </a>
+                        {/* Linkedin */}
+                        <a
+                            className="btn btn-outline-light btn-floating m-1"
+                            href="#!"
+                            role="button"
+                        >
+                            <i className="fab fa-linkedin-in" />
+                        </a>
+                        {/* Github */}
+                        <a
+                            className="btn btn-outline-light btn-floating m-1"
+                            href="#!"
+                            role="button"
+                        >
+                            <i className="fab fa-github" />
+                        </a>
+                    </section>
+                    {/* Section: Social media */}
+                    {/* Section: Form */}
+                    <section className="">
+                        <form action="">
+                            {/*Grid row*/}
+                            <div className="row d-flex justify-content-center">
+                                {/*Grid column*/}
+                                <div className="col-auto">
+                                    <p className="pt-2">
+                                        <strong>Sign up for our newsletter</strong>
+                                    </p>
+                                </div>
+                                {/*Grid column*/}
+                                {/*Grid column*/}
+                                <div className="col-md-5 col-12">
+                                    {/* Email input */}
+                                    <div className="form-outline form-white mb-4">
+                                        <input
+                                            type="email"
+                                            id="form5Example21"
+                                            className="form-control"
+                                        />
+                                        <label className="form-label" htmlFor="form5Example21">
+                                            Email address
+                                        </label>
+                                    </div>
+                                </div>
+                                {/*Grid column*/}
+                                {/*Grid column*/}
+                                <div className="col-auto">
+                                    {/* Submit button */}
+                                    <button type="submit" className="btn btn-outline-light mb-4">
+                                        Subscribe
+                                    </button>
+                                </div>
+                                {/*Grid column*/}
+                            </div>
+                            {/*Grid row*/}
+                        </form>
+                    </section>
+                    {/* Section: Form */}
+                    {/* Section: Text */}
+                    <section className="mb-4">
+                        <p>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt
+                            distinctio earum repellat quaerat voluptatibus placeat nam, commodi
+                            optio pariatur est quia magnam eum harum corrupti dicta, aliquam sequi
+                            voluptate quas.
+                        </p>
+                    </section>
+                    {/* Section: Text */}
+                    {/* Section: Links */}
+                    <section className="">
+                        {/*Grid row*/}
+                        <div className="row">
+                            {/*Grid column*/}
+                            <div className="col-lg-3 col-md-6 mb-4 mb-md-0">
+                                <h5 className="text-uppercase">Links</h5>
+                                <ul className="list-unstyled mb-0">
+                                    <li>
+                                        <a href="#!" className="text-white">
+                                            Link 1
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#!" className="text-white">
+                                            Link 2
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#!" className="text-white">
+                                            Link 3
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#!" className="text-white">
+                                            Link 4
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                            {/*Grid column*/}
+                            {/*Grid column*/}
+                            <div className="col-lg-3 col-md-6 mb-4 mb-md-0">
+                                <h5 className="text-uppercase">Links</h5>
+                                <ul className="list-unstyled mb-0">
+                                    <li>
+                                        <a href="#!" className="text-white">
+                                            Link 1
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#!" className="text-white">
+                                            Link 2
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#!" className="text-white">
+                                            Link 3
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#!" className="text-white">
+                                            Link 4
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                            {/*Grid column*/}
+                            {/*Grid column*/}
+                            <div className="col-lg-3 col-md-6 mb-4 mb-md-0">
+                                <h5 className="text-uppercase">Links</h5>
+                                <ul className="list-unstyled mb-0">
+                                    <li>
+                                        <a href="#!" className="text-white">
+                                            Link 1
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#!" className="text-white">
+                                            Link 2
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#!" className="text-white">
+                                            Link 3
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#!" className="text-white">
+                                            Link 4
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                            {/*Grid column*/}
+                            {/*Grid column*/}
+                            <div className="col-lg-3 col-md-6 mb-4 mb-md-0">
+                                <h5 className="text-uppercase">Links</h5>
+                                <ul className="list-unstyled mb-0">
+                                    <li>
+                                        <a href="#!" className="text-white">
+                                            Link 1
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#!" className="text-white">
+                                            Link 2
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#!" className="text-white">
+                                            Link 3
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#!" className="text-white">
+                                            Link 4
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                            {/*Grid column*/}
+                        </div>
+                        {/*Grid row*/}
+                    </section>
+                    {/* Section: Links */}
                 </div>
-
-                <div>
-                    <a href='https://www.facebook.com/lavie.florals/' className='me-4 text-reset'>
-                        <MDBIcon fab icon="facebook-f" />
-                    </a>
-                    <a href='https://www.instagram.com/lavieflowersjo/' className='me-4 text-reset'>
-                        <MDBIcon fab icon="instagram" />
-                    </a>
-
-                    <a href='https://github.com/thanhthu1410' className='me-4 text-reset'>
-                        <MDBIcon fab icon="github" />
+                {/* Grid container */}
+                {/* Copyright */}
+                <div
+                    className="text-center p-3"
+                    style={{ backgroundColor: "rgba(0, 0, 0, 0.2)" }}
+                >
+                    © 2020 Copyright:
+                    <a className="text-white" href="https://mdbootstrap.com/">
+                        MDBootstrap.com
                     </a>
                 </div>
-            </section>
-
-            <section className=''>
-                <MDBContainer className='text-center text-md-start mt-5'>
-                    <MDBRow className='mt-3'>
-                        <MDBCol md="3" lg="4" xl="3" className='mx-auto mb-4'>
-                            <h6 className='text-uppercase fw-bold mb-4'>
-                                <MDBIcon icon="gem" className="me-3" />
-                               SWEET FLOWER 
-                            </h6>
-                            <p>
-                                Bouquets & Personal Flowers
-                                Arrangements, Centerpieces, & Installations
-                            </p>
-                        </MDBCol>
+                {/* Copyright */}
+            </footer>
+            {/* Footer */}
+        </>
 
 
-                        <MDBCol md="3" lg="2" xl="2" className='mx-auto mb-4'>
-                            <h6 className='text-uppercase fw-bold mb-4'>ADDRESS</h6>
-                            <p>
-                                <MDBIcon icon="home" className="me-2" />
-                                No.42 Tu Cuong Street - Tan Binh District - HCM
-                            </p>
-                        </MDBCol>
-
-                        <MDBCol md="4" lg="3" xl="3" className='mx-auto mb-md-0 mb-4'>
-                            <h6 className='text-uppercase fw-bold mb-4'>Contact</h6>
-                           
-                            <p>
-                                <MDBIcon icon="envelope" className="me-3" />
-                               Rikkei@example.com
-                            </p>
-                            <p>
-                                <MDBIcon icon="print" className="me-3" /> + 01 234 567 89
-                            </p>
-                        </MDBCol>
-                    </MDBRow>
-                </MDBContainer>
-            </section>
-
-            <div className='text-center p-4' style={{ backgroundColor: 'rgba(0, 0, 0, 0.05)' }}>
-                © 2023 Copyright: La Vie FlowerThanhThu
-                
-            </div>
-        </MDBFooter>
-    );
+    )
 }

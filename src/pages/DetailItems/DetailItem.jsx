@@ -9,7 +9,6 @@ import { Carousel } from 'react-bootstrap';
 
 export default function DetailItem() {
   const { id } = useParams();
-  const [quantity, setQuantity] = useState(1);
   const [addToCartClicked, setAddToCartClicked] = useState(false);
 
   const dispatch = useDispatch();
@@ -45,6 +44,7 @@ export default function DetailItem() {
         });
         if (response.ok) {
           console.log("Cart item saved to DB JSON.");
+          window.location.reload();
         } else {
           console.error("Failed to save cart item to DB JSON.");
         }

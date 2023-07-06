@@ -6,7 +6,7 @@ export const fetchCartItems = createAsyncThunk("fetchCartItems", async () => {
   let res = await axios.get(process.env.REACT_APP_SERVER_JSON + "cartItems");
   return res.data;
 });
-  
+
 
 const cartSlice = createSlice({
   name: 'cart',
@@ -19,6 +19,9 @@ const cartSlice = createSlice({
     deleteItem: (state, action) => {
       const itemId = action.payload;
       state.items = state.items.filter(item => item.id !== itemId);
+    },
+    clearCart: (state) => {
+      state.cart = [];
     },
   },
   extraReducers: {

@@ -7,9 +7,6 @@ import styles from "./Signup.module.css";
 
 function Signup() {
 
-
-
-
   const navigate = useNavigate();
   const [values, setValues] = useState({
     name: "",
