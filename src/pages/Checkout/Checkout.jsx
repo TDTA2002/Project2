@@ -17,54 +17,56 @@ import firebase from 'firebase/compat/app';
 import 'firebase/compat/firestore';
 import { auth, provider } from "../../stores/firebase/config";
 import { fetchCartItems, deleteItem } from "../../stores/slices/carts.slice";
-import { Link } from "react-router-dom";
-const firebaseConfig = {
-    apiKey: "AIzaSyC9A1erJGfuMp44Ww93_lUt1kweb5yezqc",
-    authDomain: "ghost-king-d90ca.firebaseapp.com",
-    projectId: "ghost-king-d90ca",
-    storageBucket: "ghost-king-d90ca.appspot.com",
-    messagingSenderId: "72072543801",
-    appId: "1:72072543801:web:b6646a879b6cf759e397e8",
-    measurementId: "G-YF1Z9WX6W4"
-};
-firebase.initializeApp(firebaseConfig);
-const firestore = firebase.firestore();
+import { Link, useNavigate } from "react-router-dom";
+import { collection, addDoc } from 'firebase/firestore';
+import { firestores } from '../../stores/firebase/config';
 
 function CartCheckout() {
-    const [cardNumber, setCardNumber] = useState("");
-    const [nameOnCard, setNameOnCard] = useState("");
-    const [expiration, setExpiration] = useState("");
-    const [cvv, setCVV] = useState("");
+    const [cardNumber, setCardNumber] = useState('');
+    const [nameOnCard, setNameOnCard] = useState('');
+    const [expiration, setExpiration] = useState('');
+    const [nameproduct, setNameproduct] = useState('');
+    const [cvv, setCvv] = useState('');
     const cartItems = useSelector((state) => state.cart.items);
-    console.log("🚀 ~ file: Checkout.jsx:39 ~ CartCheckout ~ cartItems:", cartItems)
     const dispatch = useDispatch();
+    const navigate = useNavigate();
 
     useEffect(() => {
         dispatch(fetchCartItems());
     }, [dispatch]);
 
-    const handleCheckout = async () => {
-        try {
-            if (!auth.currentUser) {
-                await auth.signInWithPopup(provider);
-                return;
-            }
-            await firestore.collection("orders").add({
-                items: cartItems,
-                cardNumber,
-                nameOnCard,
-                expiration,
-                cvv,
-                timestamp: firebase.firestore.FieldValue.serverTimestamp(),
-            });
-            console.log("Đơn hàng đã được xử lý thành công.");
-            console.log("Thông tin đơn hàng:", cartItems);
-        } catch (error) {
-            console.log("Lỗi khi xử lý đơn hàng:", error);
-            window.location.href = "/login";
+    const nameproductcc = cartItems.length > 0 ? cartItems[0].name : '';
 
+    function handleCheckout(e) {
+        e.preventDefault();
+
+        if (cardNumber === "" || nameOnCard === "" || expiration === "" || cvv === "") {
+            return;
         }
-    };
+
+        if (!auth.currentUser) {
+            navigate("/login");
+            return;
+        }
+
+        const movieCollRef = collection(firestores, 'test');
+        addDoc(movieCollRef, { nameproductcc, cardNumber, nameOnCard, expiration, cvv })
+            .then(response => {
+                console.log(response, "dasdasd");
+
+                setCardNumber("");
+                setNameOnCard("");
+                setExpiration("");
+                setCvv("");
+            })
+            .catch(error => {
+                console.log(error.message);
+            });
+
+        alert(nameproduct);
+    }
+
+
     const handleDeleteItem = async (itemId) => {
         try {
             await axios.delete(`${process.env.REACT_APP_SERVER_JSON}cartItems/${itemId}`);
@@ -83,13 +85,13 @@ function CartCheckout() {
     };
 
     return (
-        <section className="h-100 h-custom" style={{ backgroundColor: "black",marginTop:"50px" }}>
+        <section className="h-100 h-custom" style={{ backgroundColor: "black", marginTop: "50px" }}>
             <MDBContainer className="h-100 py-5">
                 <MDBRow className="justify-content-center align-items-center h-100" >
                     <MDBCol>
-                        <MDBCard className="shopping-cart" style={{ borderRadius: "15px",background:"rgb(239, 236, 236)" }}>
+                        <MDBCard className="shopping-cart" style={{ borderRadius: "15px", background: "rgb(239, 236, 236)" }}>
                             <MDBCardBody className="text-black">
-                                <MDBRow>
+                                <MDBRow onClick={handleCheckout}>
                                     <MDBCol lg="7" className="px-5 py-4">
                                         <MDBTypography
                                             tag="h3"
@@ -168,7 +170,7 @@ function CartCheckout() {
                                                 type="text"
                                                 size="lg"
                                                 value={cardNumber}
-                                                onChange={(e) => setCardNumber(e.target.value)}
+                                                onChange={e => setCardNumber(e.target.value)}
                                             />
 
                                             <MDBInput
@@ -177,7 +179,7 @@ function CartCheckout() {
                                                 type="text"
                                                 size="lg"
                                                 value={nameOnCard}
-                                                onChange={(e) => setNameOnCard(e.target.value)}
+                                                onChange={e => setNameOnCard(e.target.value)}
                                             />
 
                                             <MDBRow>
@@ -190,7 +192,7 @@ function CartCheckout() {
                                                         minLength="7"
                                                         maxLength="7"
                                                         value={expiration}
-                                                        onChange={(e) => setExpiration(e.target.value)}
+                                                        onChange={e => setExpiration(e.target.value)}
                                                         placeholder="MM/YYYY"
                                                     />
                                                 </MDBCol>
@@ -204,13 +206,17 @@ function CartCheckout() {
                                                         maxLength="3"
                                                         placeholder="&#9679;&#9679;&#9679;"
                                                         value={cvv}
-                                                        onChange={(e) => setCVV(e.target.value)}
+                                                        onChange={e => setCvv(e.target.value)}
                                                     />
                                                 </MDBCol>
                                             </MDBRow>
 
+                                            {auth.currentUser ? (
+                                                <button type="submit">CheckOut</button>
+                                            ) : (
+                                                <Link to="/login">Login CheckOut</Link>
+                                            )}
 
-                                            <a onClick={handleCheckout}>Buy Now</a>
                                             <MDBTypography
                                                 tag="h5"
                                                 className="fw-bold mb-5"
@@ -232,4 +238,5 @@ function CartCheckout() {
         </section>
     );
 }
+
 export default CartCheckout;

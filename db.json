@@ -793,6 +793,30 @@
       "quantity": 1
     }
   ],
-  "cartItems": [],
+  "cartItems": [
+    {
+      "name": "GTA: San Andreas",
+      "surname": "gtasanandreas",
+      "price": "3.99",
+      "desc": "Returning after his mothers murder to the semi-fictional city of Los Santos (based on Los Angeles), Carl Johnson, a former gang banger, must take back the streets for his family and friends by gaining respect and once again gaining control over the streets. However, a story filled with crime, lies and corruption will lead him to trudge the entire state of San Andreas (based on California and Nevada) to rebuild his life.",
+      "link": "https://www.rockstargames.com/games/sanandreas",
+      "release": "26th of October, 2004",
+      "platforms": "Android, PlayStation 4, PlayStation 2, Xbox 360, Xbox, PC, PlayStation 3",
+      "type": "Action",
+      "developers": "Rockstar North",
+      "publishers": "Rockstar Games",
+      "quantity": 1,
+      "isLiked": false,
+      "rating": 90,
+      "id": 19,
+      "url": "https://res.cloudinary.com/gianlucajahn/image/upload/c_scale,q_100,w_500/v1658188606/gtasanandreas_xkkyyp.jpg",
+      "footage": [
+        "https://res.cloudinary.com/gianlucajahn/image/upload/c_scale,w_1920/v1658188606/gtasanandreas_xkkyyp.jpg",
+        "https://res.cloudinary.com/gianlucajahn/image/upload/v1658238143/gtasanandreas_1_zah5ph.jpg",
+        "https://res.cloudinary.com/gianlucajahn/image/upload/v1658238142/gtasanandreas_2_vhvzyf.jpg",
+        "https://res.cloudinary.com/gianlucajahn/image/upload/v1658238143/gtasanandreas_3_pb1aih.jpg"
+      ]
+    }
+  ],
   "checkout": []
 }

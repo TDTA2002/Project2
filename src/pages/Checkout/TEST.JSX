@@ -1,76 +1,57 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from 'react';
+import { collection, addDoc } from 'firebase/firestore';
+import { firestores } from '../../stores/firebase/config';
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchCartItems, deleteItem } from "../../stores/slices/carts.slice";
 
-function App() {
-    const [cardNumber, setCardNumber] = useState("");
-    const [nameOnCard, setNameOnCard] = useState("");
-    const [expiration, setExpiration] = useState("");
-    const [cvv, setCVV] = useState("");
+export default function Checkout() {
+    const [cardNumber, setCardNumber] = useState('');
+    const [nameOnCard, setNameOnCard] = useState('');
+    const [expiration, setExpiration] = useState('');
+    const [nameproduct, setNameproduct] = useState('');
+    const [cvv, setCvv] = useState('');
+    const cartItems = useSelector((state) => state.cart.items);
+    console.log("🚀 ~ file: Checkout.jsx:39 ~ CartCheckout ~ cartItems:", cartItems)
+    const dispatch = useDispatch();
 
-    const handleCheckout = async () => {
-        try {
-            if (!auth.currentUser) {
-                await auth.signInWithPopup(provider);
-                return;
-            }
+    useEffect(() => {
+        dispatch(fetchCartItems());
+    }, [dispatch]);
 
-            await firestore.collection("orders").add({
-                items: cartItems,
-                cardNumber,
-                nameOnCard,
-                expiration,
-                cvv,
-                timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+    const nameproductcc = cartItems.length > 0 ? cartItems[0].name : '';
+
+    function handleSubmit(e) {
+        e.preventDefault();
+
+        if (cardNumber === '' || nameOnCard === '' || expiration === '' || cvv === '') {
+            return;
+        }
+
+        const movieCollRef = collection(firestores, 'test');
+        addDoc(movieCollRef, { nameproductcc, cardNumber, nameOnCard, expiration, cvv })
+            .then(response => {
+                console.log(response, "dasdasd");
+            })
+            .catch(error => {
+                console.log(error.message);
             });
 
-            console.log("Đơn hàng đã được xử lý thành công.");
-            console.log("Thông tin đơn hàng:", cartItems);
-            window.location.href = "/";
-        } catch (error) {
-            console.log("Lỗi khi xử lý đơn hàng:", error);
-            window.location.href = "/login";
-        }
-    };
+        alert(nameproduct);
+    }
 
     return (
         <div>
-            <h1>Giỏ hàng</h1>
-            <ul>
-                {cartItems.map((item) => (
-                    <li key={item.id}>
-                        <h3>{item.name}</h3>
-                        <p>Giá: {item.price}</p>
-                    </li>
-                ))}
-            </ul>
-
-            <input
-                type="text"
-                value={cardNumber}
-                onChange={(e) => setCardNumber(e.target.value)}
-                placeholder="Card Number"
-            />
-            <input
-                type="text"
-                value={nameOnCard}
-                onChange={(e) => setNameOnCard(e.target.value)}
-                placeholder="Name on Card"
-            />
-            <input
-                type="text"
-                value={expiration}
-                onChange={(e) => setExpiration(e.target.value)}
-                placeholder="Expiration"
-            />
-            <input
-                type="text"
-                value={cvv}
-                onChange={(e) => setCVV(e.target.value)}
-                placeholder="CVV"
-            />
-
-            <button onClick={handleCheckout}>Thanh toán</button>
+            <form onSubmit={handleSubmit}>
+                <label htmlFor="cardNumber">Card Number</label>
+                <input type="text" id="cardNumber" value={cardNumber} onChange={e => setCardNumber(e.target.value)} />
+                <label htmlFor="nameOnCard">Name on Card</label>
+                <input type="text" id="nameOnCard" value={nameOnCard} onChange={e => setNameOnCard(e.target.value)} />
+                <label htmlFor="expiration">Expiration</label>
+                <input type="text" id="expiration" value={expiration} onChange={e => setExpiration(e.target.value)} />
+                <label htmlFor="cvv">CVV</label>
+                <input type="text" id="cvv" value={cvv} onChange={e => setCvv(e.target.value)} />
+                <button type="submit">Add movie</button>
+            </form>
         </div>
     );
 }
-
-export default App;

@@ -1,22 +1,22 @@
 import { initializeApp } from "firebase/app";
 // import { getAnalytics } from "firebase/analytics";
 import { getAuth, GoogleAuthProvider } from "firebase/auth"
-// import { getFirestore } from "@fisebase/firestore";
+import { getFirestore } from "firebase/firestore";
 
 const firebaseConfig = {
-    apiKey: "AIzaSyC9A1erJGfuMp44Ww93_lUt1kweb5yezqc",
-    authDomain: "ghost-king-d90ca.firebaseapp.com",
-    projectId: "ghost-king-d90ca",
-    storageBucket: "ghost-king-d90ca.appspot.com",
-    messagingSenderId: "72072543801",
-    appId: "1:72072543801:web:b6646a879b6cf759e397e8",
-    measurementId: "G-YF1Z9WX6W4"
+    apiKey: "AIzaSyCiFWKvYmDyxFEMOn-FWg-Q8WW7-wBEbLA",
+    authDomain: "product-module2.firebaseapp.com",
+    projectId: "product-module2",
+    storageBucket: "product-module2.appspot.com",
+    messagingSenderId: "52436362502",
+    appId: "1:52436362502:web:e117968b9d03a96bddea87",
+    measurementId: "G-EMZZP361P6"
 };
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
-// const firestore = getFirestore(app)
+const firestores = getFirestore(app)
 const provider = new GoogleAuthProvider();
-export { auth, provider }
+export { auth, provider, app, firestores }
 // export const storage = getStorage(app);
